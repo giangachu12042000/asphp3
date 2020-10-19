@@ -19,4 +19,4 @@ use App\Http\Controllers\CategoryController;
 //     return view('welcome');
 // });
 Route::resource('user',UserController::class);
-// Route::resource('category',CategoryController::class);
+Route::resource('category',CategoryController::class);
