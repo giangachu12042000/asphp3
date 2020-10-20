@@ -13,14 +13,14 @@
             <label for="">First Name</label>
             <input type="text" name="first_name" id="" class="form-control" value="{{$user->first_name}}">
             @error('first_name')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
         <div>
             <label for="">Last Name</label>
             <input type="text" name="last_name" id="" class="form-control" value="{{$user->last_name}}">
             @error('last_name')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
 
@@ -28,7 +28,7 @@
             <label for="">Email</label>
             <input type="email" name="email" id="" class="form-control" value="{{$user->email}}">
             @error('email')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
 
@@ -42,7 +42,7 @@
             <label for="">Address</label>
             <input type="text" name="address" id="" class="form-control" value="{{$user->address}}">
             @error('address')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
 
@@ -50,7 +50,7 @@
             <label for="">Birthday</label>
             <input type="text" name="birthday" id="" class="form-control" value="{{$user->birthday}}">
             @error('birthday')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
 
