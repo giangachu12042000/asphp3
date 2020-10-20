@@ -1,7 +1,7 @@
 @extends('layout.index');
 @section('title','Thêm ')
-@section('header','Thêm sinh viên')
-@section('header-content','Thêm sinh viên ')
+@section('header','Thêm người dùng')
+@section('header-content','Thêm người dùng')
 
 @section('content')
 
@@ -17,7 +17,7 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
             <label for="">First Name</label>
             <input type="text" name="first_name" id="" class="form-control">
             @error('first_name')
-            <div class="alert alert-danger">{{$message}}</div>
+           <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
 
@@ -26,7 +26,7 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
             <label for="">Last Name</label>
             <input type="text" name="last_name" id="" class="form-control">
             @error('last_name')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
         <div>
@@ -34,7 +34,7 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
             <label for="">Email</label>
             <input type="email" name="email" id="" class="form-control">
             @error('email')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
         <div>
@@ -42,7 +42,7 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
             <label for="">Password</label>
             <input type="password" name="password" id="" class="form-control">
             @error('password')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
         <div>
@@ -50,7 +50,7 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
             <label for="">Address</label>
             <input type="text" name="address" id="" class="form-control">
             @error('address')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
         <div>
@@ -58,7 +58,7 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
             <label for="">Birthday</label>
             <input type="text" name="birthday" id="" class="form-control">
             @error('birthday')
-            <div class="alert alert-danger">{{$message}}</div>
+            <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
         <div>
@@ -72,6 +72,7 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
         <br>
         <br>
         <input type="submit" name="" id="" class="btn btn-primary" value="Thêm">
+       
     </form>
 </div>
 
