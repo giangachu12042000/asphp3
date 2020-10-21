@@ -23,12 +23,14 @@
                 <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach
             </select>
+
         </div>
         <div>
             <label for="">Content</label>
             <input type="text" name="content" id="" class="form-control">
         </div>
         <br>
+
         <div>
             <input type="submit" name="" id="" class="btn btn-primary" value="Thêm">
         </div>

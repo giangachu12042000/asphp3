@@ -6,57 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ProductRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    // public function authorize()
-    // {
-    //     return false;
-    // }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    // 'name',
-    //     'category_id',
-    //     'image_url',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    //     'desc',
-    //     'price',
-    //     'sale_percent',
-    //     'stocks',
-    //     'is_active'
     public function rules()
     {
         return [
@@ -67,7 +16,6 @@ class ProductRequest extends FormRequest
             'sale_percent' => 'required',
             'stocks' => 'required',
             'is_active' => 'required',
-
         ];
     }
 

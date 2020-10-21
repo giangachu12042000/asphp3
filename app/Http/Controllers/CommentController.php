@@ -17,7 +17,7 @@ class CommentController extends Controller
     public function index()
     {
         $comment = Comment::all();
-        // dd($comment);
+
         return view('comment.list' ,['comment'=>$comment]);
     }
 
@@ -28,10 +28,9 @@ class CommentController extends Controller
      */
     public function create()
     {
-        $users = User::all();
         $products = Product::all();
-        return view('comment.create', compact('users','products'));
-        
+        $users = User::all();
+        return view('comment.list' ,['products'=>$products], ['users'=>$users]);
     }
 
     /**
@@ -72,8 +71,8 @@ class CommentController extends Controller
     {
         $users = User::all();
         $products = Product::all();
-        return view('comment.edit',['comment'=>$comment], compact('users','products'));
 
+        return view('comment.edit',['comment'=>$comment], compact('users','products'));
     }
 
     /**
@@ -86,11 +85,12 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment)
     {
         $comment->update($request->all());
+        
         return redirect()->route('comment.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specifiesd resource from storage.
      *
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
@@ -100,6 +100,7 @@ class CommentController extends Controller
         if($comment){
             $comment->delete();    
         }
+
         return redirect()->route('comment.index');
         
     }
