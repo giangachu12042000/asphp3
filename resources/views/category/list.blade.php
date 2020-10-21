@@ -1,4 +1,4 @@
-@extends('layout.index');
+@extends('layout.index')
 @section('title','Thể loại')
 @section('header','Thể loại')
 @section('header-content','Thể loại')
@@ -11,7 +11,7 @@
         <th>Parent_id</th>
         <th>
             <a href="{{route('category.create')}}">
-            <button type="button" class="btn btn-outline-success"> Add </button>
+                <button type="button" class="btn btn-outline-success"> Add </button>
             </a>
         </th>
 
