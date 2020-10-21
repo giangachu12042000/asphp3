@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,4 @@ Route::name('auth.')->group(function () {
     Route::get('register', [LoginController::class, 'register'])->name('register');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
+
