@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
+
 
 
 /*
@@ -24,6 +26,7 @@ Route::get('/', function () {
 Route::resource('user',UserController::class);
 Route::resource('category',CategoryController::class);
 Route::resource('product',ProductController::class);
+Route::resource('comment',CommentController::class);
 
 Route::name('auth.')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('get-login');

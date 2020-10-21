@@ -1,4 +1,4 @@
-@extends('layout.index');
+@extends('layout.index')
 @section('title','Comment')
 @section('header','Comment')
 @section('header-content','Comment')
@@ -7,6 +7,8 @@
 
 <table class="table">
     <thead>
+        <th>User Name</th>
+        <th>Product Name</th>
         <th>User_id</th>
         <th>Product_id</th>
         <th>Content</th>
@@ -19,6 +21,8 @@
     <tbody>
         @foreach($comment as $item)
         <tr>
+            <td>{{$item->user->first_name}} {{$item->user->last_name}}</td>
+            <td>{{$item->product->name}}</td>
             <td>{{$item->user_id}}</td>
             <td>{{$item->product_id}}</td>
             <td>{{$item->content}}</td>

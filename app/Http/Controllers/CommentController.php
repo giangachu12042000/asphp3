@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -15,6 +17,7 @@ class CommentController extends Controller
     public function index()
     {
         $comment = Comment::all();
+
         return view('comment.list' ,['comment'=>$comment]);
     }
 
@@ -25,7 +28,9 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('comment.list' ,['product'=>$comment]);
+        $products = Product::all();
+        $users = User::all();
+        return view('comment.list' ,['products'=>$products], ['users'=>$users]);
     }
 
     /**
@@ -36,7 +41,13 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new Comment;
+        $comment->user_id = $request->user_id;
+        $comment->product_id = $request->product_id;
+        $comment->content = $request->content;
+
+        $comment->save();
+        return redirect()->route('comment.index');
     }
 
     /**
@@ -58,7 +69,10 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        $users = User::all();
+        $products = Product::all();
+
+        return view('comment.edit',['comment'=>$comment], compact('users','products'));
     }
 
     /**
@@ -70,17 +84,24 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->update($request->all());
+        
+        return redirect()->route('comment.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specifiesd resource from storage.
      *
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
     public function destroy(Comment $comment)
     {
-        //
+        if($comment){
+            $comment->delete();    
+        }
+
+        return redirect()->route('comment.index');
+        
     }
 }

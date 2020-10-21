@@ -24,7 +24,7 @@ class CommentFactory extends Factory
         return [
             'user_id' => $this->faker->numberBetween(1,15),
             'product_id' => $this->faker->numberBetween(1,15),
-            'content' => $this->faker->content,
+            'content' => $this->faker->text(20),
         ];
     }
 }
