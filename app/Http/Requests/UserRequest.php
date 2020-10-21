@@ -32,8 +32,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|min:6|max:20',
+            'last_name' => 'required|min:6|max:20',
             'password' => 'required',
             'image_url' => 'image',
             'email' => 'required',
@@ -47,7 +47,9 @@ class UserRequest extends FormRequest
             'required' => ':attribute không được để trống',
             'email' => ':attribute không đúng định dạng',
             'unique' => ':attribute đã tồn tại',
-            'image' => ':attribute không đúng định dạng'
+            'image' => ':attribute không đúng định dạng',
+            'min' => ':attribute độ dài tối thiểu 6 kí tự',
+            'max' => ':attribute độ dài tối đa 6 kí tự',
         ];
     }
 }

@@ -1,4 +1,4 @@
-@extends('layout.index');
+@extends('layout.index')
 @section('title','Thêm ')
 @section('header','Thêm người dùng')
 @section('header-content','Thêm người dùng')

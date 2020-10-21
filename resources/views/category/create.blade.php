@@ -1,4 +1,4 @@
-@extends('layout.index');
+@extends('layout.index')
 @section('title','Thêm thể loại')
 @section('header','Thêm thể loại')
 @section('header-content','Thêm thể loại')
@@ -16,7 +16,7 @@
             @enderror
         </div>
         
-        <div>
+        <div> 
             <label for="">Parent_id</label>
             <input type="number" name="parent_id" id="" class="form-control">
 

@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name'=>$this->faker->name,
-            'parent_id'=>$this->faker->numberBetween(1,10),
+            'parent_id'=>$this->faker->numberBetween(1,5),
         ];
     }
 }
