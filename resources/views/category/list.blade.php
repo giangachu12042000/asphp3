@@ -11,7 +11,7 @@
         <th>Parent Name</th>
         <th>
             <a href="{{route('category.create')}}">
-            <button type="button" class="btn btn-outline-success"> Add </button>
+                <button type="button" class="btn btn-outline-success"> Add </button>
             </a>
         </th>
 
