@@ -21,6 +21,9 @@
                 <div>
                     <input type="text" name="name" id="" class="form-control">
                     <label for=""> Name</label>
+                    @error('name')
+                        <p style="color:red;">{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <select name="category_id" id="" class="form-control">

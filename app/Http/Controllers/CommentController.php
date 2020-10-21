@@ -17,8 +17,10 @@ class CommentController extends Controller
     public function index()
     {
         $comment = Comment::all();
+        $users = User::all();
+        $products = Product::all();
 
-        return view('comment.list' ,['comment'=>$comment]);
+        return view('comment.list' ,['comment'=>$comment], ['users'=> $users], ['products'=> $products]);
     }
 
     /**
