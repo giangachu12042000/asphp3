@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+  <meta name='csrf' content={{csrf_token() }}>
   <title>@yield('title')</title>
 
   <!-- Font Awesome Icons -->
@@ -181,7 +181,6 @@
 <script>
   function dele(route,id)
   {
-    console.log(route,id)
       Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -191,17 +190,21 @@
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-      // const axios = require('axios').default;
+      let token = $('meta[name="csrf"]').attr('content');
       if (result.value) {
-        axios.delete(`${route}/${id}`)
-        .then(data=>{
-          console.log(data,'===>data')
+        axios.delete(`${route}/${id}`,{
+          _token: token
         })
-        // Swal.fire(
-        //   'Deleted!',
-        //   'Your file has been deleted.',
-        //   'success'
-        // )
+        .then(data=>{
+          if(data.data.code == 1){
+            $('#product-' + id).remove();
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
       }
     })
   }
