@@ -6,7 +6,8 @@
 @section('content')
 
 <div class="container">
-<form action="{{route('product.update',$product->id)}}" method="POST" class="form-group">
+<form action="{{route('product.update',$product->id)}}" method="POST" class="form-group" enctype="multipart/form-data">
+        @method('PUT')
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -60,7 +61,7 @@
                     <label for=""> Status</label>
                 </div>
                 <div>
-                    <input type="submit" name="" id="" class="btn btn-primary" value="Thêm">
+                    <input type="submit" name="" id="" class="btn btn-primary" value="Sửa">
                 </div>
             </div>
         </div>

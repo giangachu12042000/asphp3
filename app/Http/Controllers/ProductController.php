@@ -95,7 +95,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        if($request->hasFile('image_url')){
+            $originalFileName = $request->image_url->getClientOriginalName();
+            $fileName = uniqid() . '_' . str_replace(' ', '_', $originalFileName);
+            $path = $request->file('image_url')->storeAs('images/products', $fileName);
+            $product->image_url = $path;
+        }
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->desc = $request->desc;
+        $product->price = $request->price;
+        $product->sale_percent = $request->sale_percent;
+        $product->stocks = $request->stocks;
+        $product->is_active = $request->is_active;
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -110,7 +124,6 @@ class ProductController extends Controller
         if($product) {
             $product->delete(); // tra ve ket qua true or false
         }
-        // return 'succcessss';
-        // return redirect()->route('product.index');
+        return response()->json(['code' => '1']);
     }
 }

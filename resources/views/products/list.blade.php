@@ -21,7 +21,7 @@
     </thead>
     <tbody>
 @foreach($products as $product)
-        <tr>
+        <tr id="product-{{$product->id}}">
                 <td>{{$product->name}}</td>
                 <td><img src="{{ substr($product->image_url, 0, 4) == 'http' ? $product->image_url : asset($product->image_url) }}" height="100px" alt=""></td>
                 <td>{{$product->price}}</td>
