@@ -8,7 +8,7 @@
 <table class="table">
     <thead>
         <th>Name</th>
-        <th>Parent_id</th>
+        <th>Parent Name</th>
         <th>
             <a href="{{route('category.create')}}">
                 <button type="button" class="btn btn-outline-success"> Add </button>
@@ -20,7 +20,7 @@
 @foreach($cate as $item)
         <tr>
                 <td>{{$item->name}}</td>
-                <td>{{$item->parent_id}}</td>
+                <td>{{$item->category->name}}</td>
                 <td>
 
                 <a href="{{route('category.edit',$item->id)}}">

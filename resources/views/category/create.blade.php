@@ -1,4 +1,4 @@
-@extends('layout.index');
+@extends('layout.index')
 @section('title','Thêm thể loại')
 @section('header','Thêm thể loại')
 @section('header-content','Thêm thể loại')
@@ -11,7 +11,12 @@
         <div>
             <label for=""> Name</label>
             <input type="text" name="name" id="" class="form-control">
+            @error('name')
+            <p style="color: red;">{{$message}}</p>
+            @enderror
         </div>
+        
+        <div> 
 
         <div>
             <label for="">Parent_id</label>
