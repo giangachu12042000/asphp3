@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -36,9 +37,24 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        $product = new Product();
+        if($request->hasFile('image_url')){
+            $originalFileName = $request->image_url->getClientOriginalName();
+            $fileName = uniqid() . '_' . str_replace(' ', '_', $originalFileName);
+            $path = $request->file('image_url')->storeAs('images/products', $fileName);
+            $product->image_url = $path;
+        }
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->desc = $request->desc;
+        $product->price = $request->price;
+        $product->sale_percent = $request->sale_percent;
+        $product->stocks = $request->stocks;
+        $product->is_active = $request->is_active;
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -60,7 +76,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::all();
+        // dd($category);
+        return view('products.edit',['product'=>$product, 'categories'=>$categories]);
     }
 
     /**
@@ -83,6 +101,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        // dd($product);
+        if($product) {
+            $product->delete(); // tra ve ket qua true or false
+        }
+        // return 'succcessss';
+        // return redirect()->route('product.index');
     }
 }

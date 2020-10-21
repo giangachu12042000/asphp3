@@ -14,7 +14,7 @@
 - stocks
 - is_active -->
 <div class="container">
-<form action="{{route('category.store')}}" method="post" class="form-group">
+<form action="{{route('product.store')}}" method="post" class="form-group"  enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -31,11 +31,11 @@
                     <label for="">Name category</label>
                 </div>
                 <div>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <textarea class="form-control" rows="5" id="comment" name="desc"></textarea>
                     <label for=""> Description</label>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
+                    <input type="file" class="custom-file-input" id="customFile" name="image_url">
                     <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
             </div>
@@ -59,11 +59,10 @@
                     </select>
                     <label for=""> Status</label>
                 </div>
+                <div>
+                    <input type="submit" name="" id="dele" class="btn btn-primary" value="Thêm">
+                </div>
             </div>
-        </div>
-        <!--  -->
-        <div>
-            <input type="submit" name="" id="" class="btn btn-primary" value="Thêm">
         </div>
     </form>
 </div>
