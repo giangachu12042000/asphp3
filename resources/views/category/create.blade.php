@@ -11,6 +11,9 @@
         <div>
             <label for=""> Name</label>
             <input type="text" name="name" id="" class="form-control">
+            @error('name')
+            <p style="color: red;">{{$message}}</p>
+            @enderror
         </div>
         
         <div>

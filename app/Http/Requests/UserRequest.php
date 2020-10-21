@@ -36,7 +36,7 @@ class UserRequest extends FormRequest
             'last_name' => 'required',
             'password' => 'required',
             'image_url' => 'image',
-            'email' => 'required|email:rfc,dns',
+            'email' => 'required',
             'birthday' => 'required',
             'address' => 'required',
         ];
