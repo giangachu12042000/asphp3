@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -15,6 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('/AdminLte/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('/AdminLte/css/adminlte.min.css')}}">
+  
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -250,5 +247,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/AdminLte/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/AdminLte/js/adminlte.min.js')}}"></script>
+<script src="{{ asset('/AdminLte/js/sweetalert2@10.js')}}"></script>
+<script src="{{ asset('/AdminLte/js/axios.min.js')}}"></script>
+<script>
+  function dele(route,id)
+  {
+    console.log(route,id)
+      Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      // const axios = require('axios').default;
+      if (result.value) {
+        axios.delete(`${route}/${id}`)
+        .then(data=>{
+          console.log(data,'===>data')
+        })
+        // Swal.fire(
+        //   'Deleted!',
+        //   'Your file has been deleted.',
+        //   'success'
+        // )
+      }
+    })
+  }
+</script>
 </body>
 </html>
