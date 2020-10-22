@@ -34,8 +34,8 @@
                     @enderror
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary btn-lg">Đăng nhập</button>
-                <!-- <button class="bnt btn-secondary btn-lg"><a  href="{{route('auth.register')}}">Đăng ký</a></button> -->
+                <input type="submit" class="btn btn-primary btn-sm mr-4" value="Đăng nhập">
+                 <a  href="{{route('auth.register')}}">Đăng ký</a>
             </form>
         
         </div>
