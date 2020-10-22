@@ -20,7 +20,12 @@
 @foreach($cate as $item)
         <tr id="product-{{$item->id}}">
                 <td>{{$item->name}}</td>
-                <td>{{$item->category->name}}</td>
+                <td>@if (isset($item->category->name))  
+                    {{$item->category->name}}
+                    @else
+                    Null 
+                    @endif
+                </td>
                 <td>
 
                 <a href="{{route('category.edit',$item->id)}}">
