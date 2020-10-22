@@ -40,6 +40,9 @@
           <li class="nav-item d-none d-sm-inline-block">
             <a href="{{route('user.index')}}" class="nav-link">users</a>
           </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{route('comment.index')}}" class="nav-link">comments</a>
+          </li>
         </ul>
       </div>
       <div class="col-md-6 ">

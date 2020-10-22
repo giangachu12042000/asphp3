@@ -20,9 +20,7 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-})->name('dashboard');
+
 Route::resource('user',UserController::class);
 Route::resource('category',CategoryController::class);
 Route::resource('product',ProductController::class);
@@ -33,5 +31,12 @@ Route::name('auth.')->group(function () {
     Route::post('post-login', [LoginController::class, 'postLogin'])->name('post-login');
     Route::get('register', [LoginController::class, 'register'])->name('register');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+});
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+
+Route::get('/', function () {
+    return redirect()->route('auth.get-login');
 });
 
