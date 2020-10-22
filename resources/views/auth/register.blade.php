@@ -78,7 +78,6 @@
                 </div>
                 <br>
                 <input type="submit" name="" id="" class="btn btn-primary" value="Đăng ký">
-            
             </form>
         
         </div>
