@@ -97,6 +97,6 @@ class CategoryController extends Controller
         if($category){
             $category->delete();
         }
-        return redirect()->route('category.index');
+        return response()->json(['code' => '1']);
     }
 }
