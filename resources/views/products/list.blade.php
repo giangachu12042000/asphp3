@@ -21,27 +21,22 @@
     </thead>
     <tbody>
 @foreach($products as $product)
-        <tr>
-                <td>{{$product->name}}</td>
-                <td><img src="{{ substr($product->image_url, 0, 4) == 'http' ? $product->image_url : asset($product->image_url) }}" height="100px" alt=""></td>
-                <td>{{$product->price}}</td>
-                <td>{{$product->sale_percent}}</td>
-                <td>{{$product->stocks}}</td>
-                <td>{{$product->is_active}}</td>
-                <td>
-                    <a href="{{route('product.edit',$product->id)}}">
-                        <button type="submit" class="btn btn-outline-warning">Edit</button>
-                    </a>
-                </td>
-                <td> 
-
-                    <!-- <form action="{{route('product.destroy',$product->id)}}" method="POST" >
-                          @csrf
-                          <input  type="hidden" name="_method" value="DELETE"> -->
-                          <button type="submit" class="btn btn-outline-danger" onclick="dele('/product',{{$product->id}})">Delete</button>
-                    <!-- </form> -->
-                </td>
-        </tr>
+    <tr id="product-{{$product->id}}">
+            <td>{{$product->name}}</td>
+            <td><img src="{{ substr($product->image_url, 0, 4) == 'http' ? $product->image_url : asset($product->image_url) }}" height="100px" alt=""></td>
+            <td>{{$product->price}}</td>
+            <td>{{$product->sale_percent}}</td>
+            <td>{{$product->stocks}}</td>
+            <td>{{$product->is_active}}</td>
+            <td>
+                <a href="{{route('product.edit',$product->id)}}">
+                    <button type="submit" class="btn btn-outline-warning">Edit</button>
+                </a>
+            </td>
+            <td> 
+                <button type="submit" class="btn btn-outline-danger" onclick='dele("/product","{{$product->id}}")'>Delete</button>
+            </td>
+    </tr>
 @endforeach
     </tbody>
 
