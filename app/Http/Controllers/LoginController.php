@@ -12,7 +12,7 @@ class LoginController extends Controller
         // Lay thong tin user dang dang nhap
         // dd(Auth::user());
         if (Auth::check()) {
-            return redirect()->route('product.index');
+            return redirect()->route('dashboard');
         }
         return view('auth.login');
     }
