@@ -7,6 +7,7 @@ use\App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Comment;
+use App\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
         Category::factory(10)->create();
         Product::factory(10)->create();
         Comment::factory(10)->create();
+        Role::factory(5)->create();
     }
 }
