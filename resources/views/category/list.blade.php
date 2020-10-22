@@ -18,7 +18,7 @@
     </thead>
     <tbody>
 @foreach($cate as $item)
-        <tr>
+        <tr id="product-{{$item->id}}">
                 <td>{{$item->name}}</td>
                 <td>{{$item->category->name}}</td>
                 <td>
@@ -29,15 +29,8 @@
                 
                 </td>
                 <td> 
-
-                    <form action="{{route('category.destroy',$item->id)}}" method="POST" 
-                            onclick="return confirm('Muốn xóa hay không?')">
-                          @csrf
-                          <input  type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class="btn btn-outline-danger">Delete</button>
-                    </form>
-
-                </td>
+                <button type="submit" class="btn btn-outline-danger" onclick='dele("/category","{{$item->id}}")'>Delete</button>
+            </td>
         </tr>
 @endforeach
     </tbody>

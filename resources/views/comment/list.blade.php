@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         @foreach($comment as $item)
-        <tr>
+        <tr id="product-{{$item->id}}">
             <td>{{$item->user->first_name}} {{$item->user->last_name}}</td>
             <td>{{$item->product->name}}</td>
             <td>{{$item->content}}</td>
@@ -27,14 +27,8 @@
                     <button type="submit" class="btn btn-outline-warning">Edit</button>
                 </a>
             </td>
-            <td>
-
-                <form action="{{route('comment.destroy',$item->id)}}" method="POST" onclick="return confirm('Muốn xóa hay không?')">
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-outline-danger">Delete</button>
-                </form>
-
+            <td> 
+                <button type="submit" class="btn btn-outline-danger" onclick='dele("/comment","{{$item->id}}")'>Delete</button>
             </td>
         </tr>
         @endforeach

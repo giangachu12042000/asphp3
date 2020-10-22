@@ -102,6 +102,6 @@ class UserController extends Controller
         if($user) {
             $user->delete(); // tra ve ket qua true or false
         } 
-        return redirect()->route('user.index');
+        return response()->json(['code' => '1']);
     }
 }
