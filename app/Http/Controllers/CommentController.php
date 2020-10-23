@@ -32,7 +32,8 @@ class CommentController extends Controller
     {
         $products = Product::all();
         $users = User::all();
-        return view('comment.list' ,['products'=>$products], ['users'=>$users]);
+
+        return view('comment.create' ,['products'=>$products], ['users'=>$users]);
     }
 
     /**
@@ -49,7 +50,7 @@ class CommentController extends Controller
         $comment->content = $request->content;
 
         $comment->save();
-        return redirect()->route('comment.index');
+        return redirect()->route('product.show', $request->product_id);
     }
 
     /**
