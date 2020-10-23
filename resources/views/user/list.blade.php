@@ -46,6 +46,11 @@
                 </td>
                 <td> 
                 <button type="submit" class="btn btn-outline-danger" onclick='dele("/user","{{$item->id}}")'>Delete</button>
+              </td>
+              <td>
+                <a href="{{route('user.show',$item->id)}}">
+                    <button type="submit" class="btn btn-outline-info">Detail</button>
+                </a>
             </td>
           </tr>
           @endforeach
