@@ -41,19 +41,31 @@
                     <input type="file" class="custom-file-input" id="customFile" name="image_url">
                     <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
+                @error('image_url')
+                        <p style="color:red;">{{$message}}</p>
+                @enderror
             </div>
             <div class="col-md-6">
                 <div>
                     <input type="number" name="price" id="" class="form-control">
                     <label for=""> Price</label>
+                    @error('price')
+                        <p style="color:red;">{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <input type="text" name="sale_percent" id="" class="form-control">
                     <label for=""> Sale percent</label>
+                    @error('sale_percent')
+                        <p style="color:red;">{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <input type="text" name="stocks" id="" class="form-control">
                     <label for=""> Stocks</label>
+                    @error('stocks')
+                        <p style="color:red;">{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <select name="is_active" id="" class="form-control">
