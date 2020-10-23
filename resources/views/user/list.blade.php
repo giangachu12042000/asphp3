@@ -23,7 +23,7 @@
 
         <tbody>
           @foreach($user as $item)
-          <tr>
+          <tr id="product-{{$item->id}}">
               <td>{{$item->first_name}}</td>
               <td>{{$item->last_name}}</td>
               <td>{{$item->email}}</td>
@@ -44,16 +44,9 @@
                 <button type="submit" class="btn btn-outline-warning">Edit</button>
                 </a>
                 </td>
-                <td>
-             
-                  <form action="{{route('user.destroy',$item->id)}}" method="POST" onclick="return confirm('Muốn xóa hay không?')">
-                          @csrf
-                          <input  type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class="btn btn-outline-danger">Delete</button>
-                  </form>
-                
-               
-                </td>
+                <td> 
+                <button type="submit" class="btn btn-outline-danger" onclick='dele("/user","{{$item->id}}")'>Delete</button>
+            </td>
           </tr>
           @endforeach
         </tbody>

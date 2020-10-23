@@ -103,8 +103,6 @@ class CommentController extends Controller
         if($comment){
             $comment->delete();    
         }
-
-        return redirect()->route('comment.index');
-        
+        return response()->json(['code' => '1']);
     }
 }
