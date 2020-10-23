@@ -31,9 +31,9 @@
               <td>{{$item->birthday}}</td>
               <td>
                    @if($item->is_active == 0)
-                    Nghỉ học
+                    User
                     @else($item->is_active == 1)
-                    Đi học
+                    Admin
                    
                     @endif
 

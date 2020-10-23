@@ -28,13 +28,15 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-           'name'=>'required'
+           'name'=>'required|min:5|max:100'
         ];
     }
     public function messages()
     {
         return[
-            'required'=>':attribute không được để trống'
+            'required'=>':attribute không được để trống',
+            'min'=>':attribute tối thiểu 5 kí tự',
+            'max'=>':attribute tối đa 100 kí tự',
         ];
     }
 }
