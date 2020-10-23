@@ -53,15 +53,6 @@
             <p style="color:red;">{{$message}}</p>
             @enderror
         </div>
-
-        <div>
-            <label for="">Trang thai</label>
-
-            <input type="radio" name="is_active" value="0" {{$user->is_active ==0 ? "checked" : "" }} /> Nghi hoc
-            <input type="radio" name="is_active" value="1" {{$user->is_active ==1 ? "checked" : ""}} /> Di hoc
-        </div>
-
-
         <input type="submit" name="" id="" class="btn btn-primary" value="Edit">
     </form>
 </div>

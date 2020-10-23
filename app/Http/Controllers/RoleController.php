@@ -8,6 +8,10 @@ use App\Models\Role;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('aciveRole');
+    }
     /**
      * Display a listing of the resource.
      *

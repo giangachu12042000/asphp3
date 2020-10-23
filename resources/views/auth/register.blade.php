@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="{{ asset('/AdminLte/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('/AdminLte/css/adminlte.min.css')}}">
-    <?php
-        $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
-    ?>
 </head>
 <body>
     <div class="container">
@@ -69,17 +66,9 @@
                     <p style="color:red;">{{$message}}</p>
                     @enderror
                 </div>
-                <div>
-                    <label for="">Trang thai</label>
-                    <br>
-                    @foreach($is_active as $key => $item)
-                    <input type="radio" name="is_active" id="" value="{{$key}}">{{$item}} &nbsp;
-                    @endforeach
-                </div>
                 <br>
                 <input type="submit" name="" id="" class="btn btn-primary" value="Đăng ký">
             </form>
-        
         </div>
         </div>
     </div>
