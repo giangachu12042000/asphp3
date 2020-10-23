@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Comment;
+use App\Models\User;
 
 class ProductController extends Controller
 {
@@ -51,6 +53,8 @@ class ProductController extends Controller
             $path = $request->file('image_url')->storeAs('images/products', $fileName);
             $product->image_url = $path;
         }
+        $comment = new Comment();
+        $comment->content = $request->content;
         $product->name = $request->name;
         $product->category_id = $request->category_id;
         $product->desc = $request->desc;
@@ -70,7 +74,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $comment = Comment::where('product_id', $product->id)->get();
+        return view('products.detail',['product'=>$product],['comment'=>$comment]);
     }
 
     /**
