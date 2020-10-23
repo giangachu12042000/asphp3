@@ -9,6 +9,7 @@
 use Illuminate\Support\Facades\Auth;
 ?>
 <div class="container">
+    <h1>Chi tiết product</h1>
     <div class="row">
         <div class="col">
             <img src="{{ substr($product->image_url, 0, 4) == 'http' ? $product->image_url : asset($product->image_url) }}" alt="" width="400">
@@ -21,17 +22,14 @@ use Illuminate\Support\Facades\Auth;
         </div>
 
         <div class="col">
-
-
             <label for="">Bình Luận</label>
             <form action="{{route('comment.store')}}" method="post" class="form-group">
+
                 @csrf
                 <input type="hidden" name="user_id" id="" value="{{Auth::user()->id}}">
                 <input type="hidden" name="product_id" id="" value="{{$product->id}}">
 
-                <input type="text" name="content" id="" class="form-control">
-
-
+                <textarea name="content" id="" cols="70" rows="7"></textarea>
                 <br>
                 <input type="submit" name="" id="" class="btn btn-primary" value="Gửi">
             </form>
