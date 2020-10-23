@@ -28,8 +28,10 @@ use Illuminate\Support\Facades\Auth;
                 @csrf
                 <input type="hidden" name="user_id" id="" value="{{Auth::user()->id}}">
                 <input type="hidden" name="product_id" id="" value="{{$product->id}}">
-
-                <textarea name="content" id="" cols="70" rows="7"></textarea>
+                <div>
+                    <textarea name="content" id="" cols="70" rows="7"></textarea>
+                  
+                </div>
                 <br>
                 <input type="submit" name="" id="" class="btn btn-primary" value="Gửi">
             </form>
