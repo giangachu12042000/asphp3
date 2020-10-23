@@ -110,13 +110,25 @@
               <li class="nav-item">
                 <a href="{{route('product.index')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>products</p>
+                  <p>Products</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('category.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>categories</p>
+                  <p>Pategories</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.index')}}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('comment.index')}}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Comment</p>
                 </a>
               </li>
             </ul>
