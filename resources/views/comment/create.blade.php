@@ -28,6 +28,9 @@
         <div>
             <label for="">Content</label>
             <input type="text" name="content" id="" class="form-control">
+            @error('content')
+            <p style="color: red;">{{$message}}</p>
+            @enderror
         </div>
         <br>
 
