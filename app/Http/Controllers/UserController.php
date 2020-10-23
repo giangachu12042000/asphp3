@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    
+   
     /**
      * Display a listing of the resource.
      *
@@ -41,15 +41,22 @@ class UserController extends Controller
     public function store(UserRequest $request )
     {
         $user = new User;
+        if($request->role_id == ''){
+            $user->role_id = 0;
+        }else{
+            $user->role_id = $request->role_id;
+        }
+        if($request->is_active ==''){
+            $user->is_active = 0;
+        }
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->address = $request->address;
         $user->birthday = $request->birthday;
-        $user->is_active = $request->is_active;
         $user->save();
-         return redirect()->route('user.index');  
+         return redirect()->route('auth.get-login');  
     }
 
     /**

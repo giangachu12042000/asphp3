@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         Category::factory(10)->create();
         Product::factory(10)->create();
         Comment::factory(10)->create();
-        Role::factory(5)->create();
+        Role::factory(2)->create();
     }
 }

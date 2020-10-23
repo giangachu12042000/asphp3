@@ -5,10 +5,7 @@
 
 @section('content')
 
-<?php
-$is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
 
-?>
 <div class="container">
     <form action="{{route('user.store')}}" method="post" class="form-group">
         @csrf
@@ -62,14 +59,12 @@ $is_active = [1 => 'Đi học', 2 => 'Nghỉ học'];
             @enderror
         </div>
         <div>
-            <label for="">Trang thai</label>
-            <br>
-            @foreach($is_active as $key => $item)
-            <input type="radio" name="is_active" id="" value="{{$key}}">{{$item}} &nbsp;
-            @endforeach
+            <label for="">Quyền</label>
+            <select name="role_id" id="" class="form-control">
+                <option value="0">user</option>
+                <option value="1">admin</option>
+            </select>
         </div>
-        <br>
-        <br>
         <br>
         <input type="submit" name="" id="" class="btn btn-primary" value="Thêm">
        

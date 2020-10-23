@@ -1,5 +1,5 @@
 
-@extends('layout.index');
+@extends('layout.index')
 @section('title','trang chủ')
 @section('header','trang chủ')
 @section('header-content','trang chủ')

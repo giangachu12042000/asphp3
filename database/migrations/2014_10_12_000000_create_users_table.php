@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('birthday');
             $table->string('is_active');
+            $table->integer('role_id');
             $table->timestamps();
         });
     }

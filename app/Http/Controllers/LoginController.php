@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -20,11 +21,9 @@ class LoginController extends Controller
     // Ham xu ly viec login
     public function postLogin(Request $request)
     {
-        // use Auth;
         $data = $request->only('email', 'password');
-        // Kiem tra login su dung Auth
-        // dd($data );
         if (Auth::attempt($data)) {
+            User::where('email','like',$request->email)->update(['is_active'=>1]);
             return redirect()->route('dashboard');
         }
 
@@ -39,6 +38,8 @@ class LoginController extends Controller
 
     public function logout()
     {
+        $users = Auth::user();
+        User::where('email','like',$users->email)->update(['is_active'=> 0]);
         Auth::logout();
         return redirect()->route('auth.get-login');
     }

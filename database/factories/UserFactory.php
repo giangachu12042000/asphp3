@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'password' => $this->faker->password,
             'address'=>$this->faker->address,
             'birthday'=>$this->faker->dateTime,
+            'role_id'=>$this->faker->numberBetween(0,1),
             'is_active'=>$this->faker->numberBetween(0,1),
              
             // 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
