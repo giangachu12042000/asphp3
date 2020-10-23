@@ -9,13 +9,9 @@ class ProductRequest extends FormRequest
     public function attributes()
     {
         return [
-            'first_name' => 'Họ',
-            'last_name' => 'Tên',
-            'password' => 'Mật khẩu',
+            'name' => 'Tên',
             'image_url' => 'Ảnh đại diện',
-            'email' => 'Email',
-            'birthday' => 'Ngày sinh',
-            'address' => 'Địa chỉ'
+            'price' => 'Giá'
         ];
     }
 
@@ -24,7 +20,7 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'required | max:20 | min:2',
             'category_id' => 'required',
-            'image_url' => 'image',
+            'image_url' => 'image | required',
             'price' => 'required',
             'sale_percent' => 'required',
             'stocks' => 'required',
