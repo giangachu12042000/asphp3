@@ -30,6 +30,7 @@ Route::name('auth.')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('get-login');
     Route::post('post-login', [LoginController::class, 'postLogin'])->name('post-login');
     Route::get('register', [LoginController::class, 'register'])->name('register');
+    Route::post('sign-up', [LoginController::class, 'signUp'])->name('signup');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 Route::get('/dashboard', function () {

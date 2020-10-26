@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-   
+    // public function __construct()
+    // {
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +40,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request )
+    public function store(UserRequest $request)
     {
         $user = new User;
         if($request->role_id == ''){
@@ -56,7 +58,7 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->birthday = $request->birthday;
         $user->save();
-         return redirect()->route('auth.get-login');  
+        return redirect()->route('auth.get-login');  
     }
 
     /**
