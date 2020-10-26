@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Http\Requests\UserRequest;
 
 class LoginController extends Controller
 {
@@ -36,9 +37,17 @@ class LoginController extends Controller
         return view('auth.register');
     }
 
+    public function signUp(){
+        dd(1);
+    }
+
     public function logout()
     {
         $users = Auth::user();
+        // dd($users);
+        if($users == null || $users->email == ''){
+            return redirect()->route('auth.get-login');
+        }
         User::where('email','like',$users->email)->update(['is_active'=> 0]);
         Auth::logout();
         return redirect()->route('auth.get-login');

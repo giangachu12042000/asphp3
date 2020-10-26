@@ -31,12 +31,13 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
+        // dd($user->id);
         return [
             'first_name' => 'required|min:6|max:20',
             'last_name' => 'required|min:6|max:20',
             'password' => 'required',
             'image_url' => 'image',
-            'email' => 'required',
+            'email' => 'required | unique:users,email',
             'birthday' => 'required',
             'address' => 'required',
         ];

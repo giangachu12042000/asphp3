@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('aciveRole');
+        $this->middleware(['aciveRole','auth']);
     }
     
     public function index()
