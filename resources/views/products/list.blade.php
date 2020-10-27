@@ -4,7 +4,7 @@
 @section('header-content','Thể loại')
 
 @section('content')
-
+<div class="container">
 <table class="table">
     <thead>
         <th>Name</th>
@@ -23,7 +23,7 @@
 @foreach($products as $product)
     <tr id="product-{{$product->id}}">
             <td>{{$product->name}}</td>
-            <td><img src="{{ substr($product->image_url, 0, 4) == 'http' ? $product->image_url : asset($product->image_url) }}" height="100px" alt=""></td>
+            <td><img src="{{ substr($product->image_url, 0, 4) == 'http' ? $product->image_url : asset($product->image_url) }}" width="200px" alt=""></td>
             <td>{{$product->price}}</td>
             <td>{{$product->sale_percent}}</td>
             <td>{{$product->stocks}}</td>
@@ -46,5 +46,5 @@
     </tbody>
 
 </table>
-
+</div>
 @endsection
