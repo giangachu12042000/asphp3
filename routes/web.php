@@ -7,6 +7,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::name('auth.')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('get-login');
     Route::post('post-login', [LoginController::class, 'postLogin'])->name('post-login');
     Route::get('register', [LoginController::class, 'register'])->name('register');
-    Route::post('sign-up', [LoginController::class, 'signUp'])->name('signup');
+    Route::post('sign-up', [RegisterController::class, 'signUp'])->name('signup');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 Route::get('/dashboard', function () {

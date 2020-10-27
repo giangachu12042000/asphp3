@@ -15,7 +15,7 @@
         <br>
         <br>
         <div class="col-md-6 offset-md-3">
-            <form action="{{route('user.store')}}" method="post" class="form-group">
+            <form action="{{route('auth.signup')}}" method="post" class="form-group">
                 @csrf
                 <div>
 
@@ -61,7 +61,7 @@
                 <div>
 
                     <label for="">Birthday</label>
-                    <input type="text" name="birthday" id="" class="form-control">
+                    <input type="date" name="birthday" id="" class="form-control">
                     @error('birthday')
                     <p style="color:red;">{{$message}}</p>
                     @enderror
