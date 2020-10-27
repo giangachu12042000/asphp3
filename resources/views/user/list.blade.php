@@ -5,7 +5,10 @@
 @section('header-content','Danh sách sinh viên ')
 
 @section('content')
-    
+<?php
+  use App\models\User;
+
+?>
     <table class="table ">
         <thead>
             <th>First Name</th>
@@ -15,6 +18,7 @@
             <th>Birthday</th>
             <th>Trạng thái</th>
             <th>
+            
               <a href="{{route('user.create')}}">
                     <button type="button" class="btn btn-outline-success"> Add </button>
               </a>
@@ -39,18 +43,23 @@
 
               </td>
               <td>
-
+              @can('update', $item)
                 <a href="{{route('user.edit', $item->id)}}">
                 <button type="submit" class="btn btn-outline-warning">Edit</button>
                 </a>
+                @endcan
                 </td>
                 <td> 
+                @can('delete', $item)
                 <button type="submit" class="btn btn-outline-danger" onclick='dele("/user","{{$item->id}}")'>Delete</button>
+                @endcan
               </td>
               <td>
+              @can('view', $item)
                 <a href="{{route('user.show',$item->id)}}">
                     <button type="submit" class="btn btn-outline-info">Detail</button>
                 </a>
+              @endcan
             </td>
           </tr>
           @endforeach

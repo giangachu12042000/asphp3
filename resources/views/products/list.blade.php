@@ -4,6 +4,10 @@
 @section('header-content','Thể loại')
 
 @section('content')
+<?php
+    use App\models\Product;
+?>
+
 <div class="container">
 <table class="table">
     <thead>
@@ -14,9 +18,11 @@
         <th>stocks</th>
         <th>status</th>
         <th>
-            <a href="{{route('product.create')}}">
-            <button type="button" class="btn btn-outline-success"> Add </button>
-            </a>
+            @can('create', Product::class)
+                <a href="{{route('product.create')}}">
+                    <button type="button" class="btn btn-outline-success"> Add </button>
+                </a>
+            @endcan
         </th>
     </thead>
     <tbody>
@@ -29,17 +35,23 @@
             <td>{{$product->stocks}}</td>
             <td>{{$product->is_active}}</td>
             <td>
-                <a href="{{route('product.edit',$product->id)}}">
-                    <button type="submit" class="btn btn-outline-warning">Edit</button>
-                </a>
+                @can('update', $product)
+                    <a href="{{route('product.edit',$product->id)}}">
+                        <button type="submit" class="btn btn-outline-warning">Edit</button>
+                    </a>
+                @endcan
             </td>
             <td> 
-                <button type="submit" class="btn btn-outline-danger" onclick='dele("/product","{{$product->id}}")'>Delete</button>
+                @can('delete', $product)
+                    <button type="submit" class="btn btn-outline-danger" onclick='dele("/product","{{$product->id}}")'>Delete</button>
+                @endcan
             </td>
             <td>
-                <a href="{{route('product.show',$product->id)}}">
-                    <button type="submit" class="btn btn-outline-info">Detail</button>
-                </a>
+                @can('view', $product)
+                    <a href="{{route('product.show',$product->id)}}">
+                        <button type="submit" class="btn btn-outline-info">Detail</button>
+                    </a>
+                @endcan
             </td>
     </tr>
 @endforeach
