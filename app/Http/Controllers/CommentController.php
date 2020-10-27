@@ -12,7 +12,9 @@ class CommentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['aciveRole','auth']);
+        $this->middleware('auth');
+        $this->authorizeResource(Comment::class, 'comment');
+
     }
     /**
      * Display a listing of the resource.

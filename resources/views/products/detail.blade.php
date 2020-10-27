@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Auth;
         <div class="col">
             <img src="{{ substr($product->image_url, 0, 4) == 'http' ? $product->image_url : asset($product->image_url) }}" alt="" width="400">
             <br><br>
-            <h4> <b>Category :</b>{{$product->category->name}}</h4>
-            <h4> <b>Desc :</b> {{$product->desc}} </h4>
-            <h4> <b>Price :</b> {{$product->price}}</h4>
-            <h4> <b>Sale percent :</b> {{$product->sale_percent}}</h4>
+            <h4> <b>Category :</b>{{$product->category ? $product->category->name : 'null'}}</h4>
+            <h4> <b>Desc :</b> {{ $product->desc ? $product->desc : 'null'}} </h4>
+            <h4> <b>Price :</b> {{$product->price ? $product->price : 'null'}}</h4>
+            <h4> <b>Sale percent :</b> {{$product->sale_percent ? $product->sale_percent : 'null'}}</h4>
             <h4> <b>Stocks :</b>{{$product->stocks}}</h4>
         </div>
 
@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Auth;
             <br>
 
             @foreach($comment as $item)
-            <b>Name :</b> {{($item->user->first_name)}}{{($item->user->last_name)}}
+            <b>Name :</b> {{($item->user ? $item->user->first_name : 'null')}}{{($item->user ? $item->user->last_name : 'null')}}
             <div>
                 {{$item->content}}
             </div>

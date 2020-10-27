@@ -15,7 +15,10 @@ class CategoryController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['aciveRole','auth']);
+        $this->authorizeResource(Category::class, 'category');
+        // $this->middleware('auth')->only('create', 'store', 'show', 'edit', 'update', 'destroy');
+        $this->middleware('auth');
+
     }
     
     public function index()
