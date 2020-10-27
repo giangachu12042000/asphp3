@@ -21,12 +21,11 @@ class UserPolicy
 
     public function view(User $user)
     {
-        return true;
+        return $user->role_id ==1;
     }
 
     public function create(User $user)
     {
-        dd($user);
         return $user->role_id >= 0;
     }
 
