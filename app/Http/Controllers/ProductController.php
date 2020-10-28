@@ -18,8 +18,8 @@ class ProductController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('activeLoginUser');
         $this->authorizeResource(Product::class, 'product');
-        $this->middleware('auth');
     }
     
     public function index()
