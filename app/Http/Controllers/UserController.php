@@ -12,6 +12,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('activeLoginUser');
         $this->authorizeResource(User::class, 'user');
     }
     /**

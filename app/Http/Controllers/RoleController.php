@@ -10,7 +10,7 @@ class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['aciveRole','auth']);
+        $this->middleware('activeLoginUser');
     }
     /**
      * Display a listing of the resource.
